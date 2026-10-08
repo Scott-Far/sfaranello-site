@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank You, WUC Graz | Scott Faranello</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Takeaways and starter kit from Scott Faranello's WUC Graz 2026 talk, Infrastructure Is Influence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --cream: #F6F2EA;
+    --card: #FFFDF8;
+    --gold: #E0A63E;
+    --gold-light: #F0C674;
+    --gold-dark: #8F5F14;
+    --text-light: #F5F3EE;
+    --muted: #D9D5CC;
+    --ink: #221E1F;
+    --rule: #E2D9C6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+
+  /* Hero */
+  .hero { background: var(--black); color: var(--text-light); padding: 96px 0 88px; }
+  .hero .kicker {
+    color: var(--gold); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 5.4vw, 56px); font-weight: 800;
+    line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold-light); }
+  .hero p:not(.kicker) { font-size: 19px; color: var(--muted); max-width: 640px; margin-bottom: 36px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--gold); color: var(--black);
+    font-weight: 700; font-size: 17px; text-decoration: none;
+    padding: 16px 28px; border-radius: 4px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
+  .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .file-note { display: block; margin-top: 14px; font-size: 14px; color: #9b968c; }
+
+  /* Contents */
+  .contents { padding: 80px 0 72px; }
+  .section-kicker, .close .section-kicker {
+    color: var(--gold-dark); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .contents h2, .close h2 {
+    font-size: clamp(28px, 4vw, 38px); font-weight: 800;
+    letter-spacing: -0.015em; line-height: 1.15; margin-bottom: 32px;
+  }
+  .items { list-style: none; border-top: 1px solid var(--rule); }
+  .items li {
+    display: grid; grid-template-columns: 56px 1fr; gap: 8px;
+    padding: 24px 0; border-bottom: 1px solid var(--rule);
+  }
+  .num { color: var(--gold-dark); font-weight: 800; font-size: 18px; padding-top: 1px; }
+  .items h3 { font-size: 19px; font-weight: 700; margin-bottom: 4px; line-height: 1.35; }
+  .items p { font-size: 17px; color: #4a4542; }
+
+  /* Close */
+  .close { background: var(--black); color: var(--text-light); padding: 80px 0 88px; }
+  .close .section-kicker { color: var(--gold); font-size: 13px; margin-bottom: 12px; max-width: none; }
+  .close p:not(.section-kicker) { font-size: 19px; color: var(--muted); max-width: 640px; margin-bottom: 32px; }
+  .close p a { color: var(--gold-light); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .contact { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1.5px solid var(--gold); color: var(--text-light);
+    font-weight: 700; font-size: 16px; text-decoration: none;
+    padding: 14px 24px; border-radius: 4px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .btn-outline:hover { background: var(--gold); color: var(--black); }
+  .btn-outline:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
+  .btn-outline svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  footer { background: var(--black); border-top: 1px solid #2B2924; color: #8a857c; font-size: 14px; padding: 28px 0; }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 0 16px; }
+    .hero { padding: 64px 0 60px; }
+    .hero p, .close p { font-size: 17px; }
+    .btn { width: 100%; justify-content: center; }
+    .contents { padding: 56px 0 48px; }
+    .items li { grid-template-columns: 40px 1fr; padding: 20px 0; }
+    .items h3 { font-size: 18px; }
+    .items p { font-size: 16px; }
+    .close { padding: 56px 0 64px; }
+    .contact { flex-direction: column; }
+    .btn-outline { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">WUC Graz 2026 · Infrastructure Is Influence</p>
+    <h1>Thank you for coming to my talk at <em>WUC Graz 2026.</em></h1>
+    <p>I hope "Infrastructure Is Influence" gave you something to take back to work or just think about. Everything you need to get started is in one PDF.</p>
+    <a class="btn" href="Infrastructure-Is-Influence-Takeaways.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download the takeaways and starter kit (PDF)
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="contents">
+    <div class="wrap">
+      <p class="section-kicker">In the PDF</p>
+      <h2>What's inside</h2>
+      <ul class="items">
+        <li><span class="num">01</span><div><h3>Talk takeaways</h3><p>The big idea, why the usual advice for having influence falls short, and the five ResearchOps pillars that help turn research into infrastructure and influence.</p></div></li>
+        <li><span class="num">02</span><div><h3>Check your organization's research</h3><p>Five questions to tell if your research is ready to influence.</p></div></li>
+        <li><span class="num">03</span><div><h3>Where to start, by role</h3><p>A first step for researchers, research leaders, designers, product managers, decision makers, and anyone else doing research.</p></div></li>
+        <li><span class="num">04</span><div><h3>Organizational Memory Starter Kit</h3><p>A research inventory, your first two rules, a findings template, a starter tag list, and a governance checklist, so you can put all five pillars into practice.</p></div></li>
+        <li><span class="num">05</span><div><h3>The AI prompt</h3><p>A ready-to-use prompt for answering "What do we already know?"</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <p class="section-kicker">Stay in touch</p>
+      <h2>Let's keep talking</h2>
+      <p>Want to see the demo again, or talk about how this could work in your organization? Email me at <a href="mailto:faranellos@gmail.com">faranellos@gmail.com</a>, and let's connect on LinkedIn.</p>
+      <div class="contact">
+        <a class="btn-outline" href="mailto:faranellos@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email me
+        </a>
+        <a class="btn-outline" href="https://www.linkedin.com/in/sfaranello/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7"/><path d="M8 7v.01"/><path d="M12 17v-4a2 2 0 0 1 4 0v4"/><path d="M12 10v7"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Scott Faranello · UX Research and ResearchOps</div>
+</footer>
+
+</body>
+</html>
